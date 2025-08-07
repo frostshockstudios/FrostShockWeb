@@ -279,6 +279,169 @@
       opacity: 0.9;
     }
 
+    /* Hiring section styles */
+    #hiring {
+      background: 
+        radial-gradient(circle at 25% 25%, rgba(255, 0, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(0, 255, 128, 0.05) 0%, transparent 50%);
+    }
+
+    #hiring h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #aeeaff;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+
+    #hiring h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #00ff80, #ff00ff, #00ff80, transparent);
+      border-radius: 2px;
+      animation: hiringLineGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes hiringLineGlow {
+      0% { box-shadow: 0 0 5px #00ff80; }
+      100% { box-shadow: 0 0 15px #00ff80, 0 0 25px #ff00ff; }
+    }
+
+    .hiring-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hiring-intro {
+      font-size: 1.2rem;
+      color: #b0dfff;
+      margin-bottom: 50px;
+      line-height: 1.6;
+    }
+
+    .job-listings {
+      background: rgba(27, 35, 49, 0.6);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .job-listings::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #00ff80, #ff00ff, #00ff80);
+      animation: jobListingsBorder 3s linear infinite;
+    }
+
+    @keyframes jobListingsBorder {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .job-listings h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      color: #90d2ff;
+      margin-bottom: 30px;
+    }
+
+    .job-list {
+      list-style: none;
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .job-list li {
+      background: rgba(0, 255, 255, 0.1);
+      margin: 15px 0;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid #00ff80;
+      color: #c0e5ff;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .job-list li::before {
+      content: '⚡';
+      position: absolute;
+      left: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      transition: left 0.3s ease;
+    }
+
+    .job-list li:hover {
+      background: rgba(0, 255, 255, 0.2);
+      transform: translateX(10px);
+      box-shadow: 0 5px 15px rgba(0, 255, 128, 0.3);
+    }
+
+    .job-list li:hover::before {
+      left: -20px;
+    }
+
+    .apply-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #00ff80 0%, #00ffff 50%, #ff00ff 100%);
+      color: #000;
+      padding: 20px 40px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      font-family: 'Orbitron', sans-serif;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0, 255, 128, 0.3);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .apply-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff00ff 0%, #00ffff 50%, #00ff80 100%);
+      transition: left 0.5s ease;
+      z-index: -1;
+    }
+
+    .apply-button:hover::before {
+      left: 0;
+    }
+
+    .apply-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 255, 128, 0.5);
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
     /* Footer with gradient */
     footer {
       position: relative;
@@ -306,6 +469,15 @@
       .staff {
         grid-template-columns: 1fr;
         gap: 20px;
+      }
+
+      .job-listings {
+        padding: 30px 20px;
+      }
+
+      .apply-button {
+        padding: 15px 30px;
+        font-size: 1rem;
       }
     }
 
@@ -339,6 +511,7 @@
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About Us</a>
+    <a href="#hiring">Join Us</a>
   </nav>
   
   <section id="home">
@@ -367,6 +540,35 @@
         <h3>Lex</h3>
         <p>Sound Designer<br>Creates frosty atmospheres with pristine audio mixing that immerses players</p>
       </div>
+    </div>
+  </section>
+
+  <section id="hiring">
+    <div class="hiring-content">
+      <h2>Now Hiring ⚡</h2>
+      <p class="hiring-intro">
+        Ready to join our electrifying team? We're looking for passionate creators who share our vision of pushing the boundaries of interactive entertainment.
+      </p>
+      
+      <div class="job-listings">
+        <h3>Open Positions</h3>
+        <ul class="job-list">
+          <li>Recruiter</li>
+          <li>Scripters/Engineers</li>
+          <li>Designers (UI/UX, game design)</li>
+          <li>Animators / 3D modelers</li>
+          <li>Project/Product manager</li>
+          <li>Community & Media Lead </li>
+          <li>Other roles? Let’s chat</li>
+        </ul>
+      </div>
+      
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSet2uWGoOND3JH6UKbFBm1zqLQmXg7bLFiQVF6273eTQbrD-Q/viewform?usp=header" 
+         target="_blank" 
+         class="apply-button"
+         onclick="animateApplyButton(this)">
+        Apply Now
+      </a>
     </div>
   </section>
   
@@ -407,6 +609,17 @@
         setTimeout(() => {
           card.style.transform = 'translateY(-10px)';
         }, 200);
+      }, 100);
+    }
+
+    // Animate apply button
+    function animateApplyButton(button) {
+      button.style.transform = 'translateY(-5px) scale(0.95)';
+      setTimeout(() => {
+        button.style.transform = 'translateY(-5px) scale(1.05)';
+        setTimeout(() => {
+          button.style.transform = 'translateY(-5px)';
+        }, 150);
       }, 100);
     }
 
